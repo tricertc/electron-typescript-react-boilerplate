@@ -8,9 +8,12 @@
     "build-main": "cross-env NODE_ENV=production webpack --config webpack.config.main.js",
     "build-main-dev": "webpack --config webpack.config.main.js",
     "build-renderer": "cross-env NODE_ENV=production webpack --config webpack.config.renderer.js",
+    "build-renderer-dev": "webpack --config webpack.config.renderer.js",
     "clean": "rm -rf dist",
     "lint": "tslint --project tsconfig.json --fix",
     "start": "electron .",
+    "start-dev": "npm run clean && webpack-dev-server --hot --config webpack.config.server.js",
+    "start-dev-main": "npm run build-main-dev && electron .",
     "precommit": "lint-staged",
     "prestart": "npm run build"
   },
